@@ -8,7 +8,8 @@ import {
   Photo,
   User,
   UserGrading,
-  UserName
+  UserName,
+  Icon
 } from './styles';
 
 export function Dashborad() {
@@ -27,6 +28,8 @@ export function Dashborad() {
               <UserName>Luiz</UserName>
             </User>
           </UserInfo>
+
+          <Icon name="power" />
         </UserWrapper>
       </Header>
     </Container>
