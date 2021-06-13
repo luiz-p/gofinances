@@ -22,7 +22,7 @@ export interface DataListProps extends TransactionCardProps {
   id: string;
 }
 
-export function Dashborad() {
+export function Dashboard() {
   const data: DataListProps[] = [{
     id: '1',
     type: 'positive',
