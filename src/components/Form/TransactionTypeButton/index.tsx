@@ -1,10 +1,10 @@
-import React from 'react';
-import { TouchableOpacityProps } from 'react-native';
+import React from 'react'
+import { TouchableOpacityProps } from 'react-native'
 import {
-Container,
-Icon,
-Title,
-} from './styles';
+  Container,
+  Icon,
+  Title
+} from './styles'
 
 const icons = {
   up: 'arrow-up-circle',
@@ -17,8 +17,8 @@ interface Props extends TouchableOpacityProps {
   isActive: boolean;
 }
 
-export function TransactionTypeButton({ title, type, isActive, ...rest }: Props) {
-  return(
+export function TransactionTypeButton ({ title, type, isActive, ...rest }: Props) {
+  return (
     <Container {...rest} type={type} isActive={isActive}>
       <Icon
         name={icons[type]}
@@ -26,5 +26,5 @@ export function TransactionTypeButton({ title, type, isActive, ...rest }: Props)
       />
       <Title>{title}</Title>
     </Container>
-  ); 
+  )
 }

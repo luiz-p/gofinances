@@ -1,9 +1,9 @@
-import React from 'react';
-import { FlatList } from 'react-native';
+import React from 'react'
+import { FlatList } from 'react-native'
 
-import { Button } from '../../components/Form/Button';
+import { Button } from '../../components/Form/Button'
 
-import { categories } from '../../utils/categories';
+import { categories } from '../../utils/categories'
 
 import {
   Container,
@@ -13,21 +13,21 @@ import {
   Icon,
   Name,
   Separator,
-  Footer,
-} from './styles';
+  Footer
+} from './styles'
 
-interface Category {
+interface CategoryProps {
   key: string;
   name: string;
 }
 
 interface Props {
-  category: Category;
-  setCategory: (category: Category) => void;
+  category: CategoryProps;
+  setCategory: (category: CategoryProps) => void;
   closeSelectCategory: () => void;
 }
 
-export function CategorySelect({
+export function CategorySelect ({
   category,
   setCategory,
   closeSelectCategory
@@ -40,7 +40,7 @@ export function CategorySelect({
 
       <FlatList
         data={categories}
-        style={{flex: 1, width: '100%'}}
+        style={{ flex: 1, width: '100%' }}
         keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
           <Category>
@@ -58,5 +58,5 @@ export function CategorySelect({
         />
       </Footer>
     </Container>
-  );
+  )
 }

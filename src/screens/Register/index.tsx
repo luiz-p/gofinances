@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Modal } from 'react-native';
+import React, { useState } from 'react'
+import { Modal } from 'react-native'
 
-import { Input } from '../../components/Form/Input';
-import { Button } from '../../components/Form/Button';
-import { TransactionTypeButton } from '../../components/Form/TransactionTypeButton';
-import { CategorySelectButton } from '../../components/Form/CategorySelectButton';
+import { Input } from '../../components/Form/Input'
+import { Button } from '../../components/Form/Button'
+import { TransactionTypeButton } from '../../components/Form/TransactionTypeButton'
+import { CategorySelectButton } from '../../components/Form/CategorySelectButton'
 
-import { CategorySelect } from '../CategorySelect';
+import { CategorySelect } from '../CategorySelect'
 
 import {
   Container,
@@ -14,28 +14,28 @@ import {
   Title,
   Form,
   Fields,
-  TransactionsTypes,
-} from './styles';
+  TransactionsTypes
+} from './styles'
 
-export function Register() {
-  const [transactionType, setTransactionType] = useState('');
-  const [categoryModalOpen, setCategoryModalOpen] = useState(false);
+export function Register () {
+  const [transactionType, setTransactionType] = useState('')
+  const [categoryModalOpen, setCategoryModalOpen] = useState(false)
 
   const [category, setCategory] = useState({
     key: 'category',
     name: 'Categoria'
-  });
+  })
 
-  function handleTransactionsTypesSelect(type: 'up' | 'down') {
-    setTransactionType(type);
+  function handleTransactionsTypesSelect (type: 'up' | 'down') {
+    setTransactionType(type)
   }
 
-  function handleOpenSelectCategoryModal() {
-    setCategoryModalOpen(true);
+  function handleOpenSelectCategoryModal () {
+    setCategoryModalOpen(true)
   }
 
-  function handleCloseSelectCategoryModal() {
-    setCategoryModalOpen(false);
+  function handleCloseSelectCategoryModal () {
+    setCategoryModalOpen(false)
   }
 
   return (
@@ -48,7 +48,7 @@ export function Register() {
       <Fields>
         <Input placeholder="Nome" />
         <Input placeholder="Preço" />
-        
+
         <TransactionsTypes>
           <TransactionTypeButton
             type="up"
@@ -82,5 +82,5 @@ export function Register() {
     </Modal>
 
     </Container>
-  );
+  )
 }
