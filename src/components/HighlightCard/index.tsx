@@ -7,28 +7,23 @@ import {
   Icon,
   Footer,
   Amount,
-  LastTransaction
+  LastTransaction,
 } from './styles'
 
 interface Props {
-  type: 'up' | 'down' | 'total';
-  title: string;
-  amount: string;
-  lastTransaction: string;
+  type: 'up' | 'down' | 'total'
+  title: string
+  amount: string
+  lastTransaction: string
 }
 
 const icon = {
   up: 'arrow-up-circle',
   down: 'arrow-down-circle',
-  total: 'dollar-sign'
+  total: 'dollar-sign',
 }
 
-export function HighlightCard ({
-  type,
-  title,
-  amount,
-  lastTransaction
-}: Props) {
+export function HighlightCard({ type, title, amount, lastTransaction }: Props) {
   return (
     <Container type={type}>
       <Header>
@@ -40,7 +35,6 @@ export function HighlightCard ({
         <Amount type={type}>{amount}</Amount>
         <LastTransaction type={type}>{lastTransaction}</LastTransaction>
       </Footer>
-
     </Container>
   )
 }

@@ -13,26 +13,26 @@ import {
   Icon,
   Name,
   Separator,
-  Footer
+  Footer,
 } from './styles'
 
 interface CategoryProps {
-  key: string;
-  name: string;
+  key: string
+  name: string
 }
 
 interface Props {
-  category: CategoryProps;
-  setCategory: (category: CategoryProps) => void;
-  closeSelectCategory: () => void;
+  category: CategoryProps
+  setCategory: (category: CategoryProps) => void
+  closeSelectCategory: () => void
 }
 
-export function CategorySelect ({
+export function CategorySelect({
   category,
   setCategory,
-  closeSelectCategory
-} : Props) {
-  function handleCategorySelect (category: CategoryProps) {
+  closeSelectCategory,
+}: Props) {
+  function handleCategorySelect(category: CategoryProps) {
     setCategory(category)
   }
 
@@ -45,7 +45,7 @@ export function CategorySelect ({
       <FlatList
         data={categories}
         style={{ flex: 1, width: '100%' }}
-        keyExtractor={(item) => item.key}
+        keyExtractor={item => item.key}
         renderItem={({ item }) => (
           <Category
             onPress={() => handleCategorySelect(item)}
@@ -59,10 +59,7 @@ export function CategorySelect ({
       />
 
       <Footer>
-        <Button
-          title="Selecionar"
-          onPress={closeSelectCategory}
-        />
+        <Button title="Selecionar" onPress={closeSelectCategory} />
       </Footer>
     </Container>
   )

@@ -8,32 +8,32 @@ import {
   Category,
   Icon,
   CategoryName,
-  Date
+  Date,
 } from './styles'
 
 interface CategoryProps {
-  name: string;
-  icon: string;
+  name: string
+  icon: string
 }
 
 export interface TransactionCardProps {
-  type: 'positive' | 'negative';
-  title: string;
-  amount: string;
-  category: CategoryProps;
-  date: string;
+  type: 'positive' | 'negative'
+  title: string
+  amount: string
+  category: CategoryProps
+  date: string
 }
 
 interface Props {
-  data: TransactionCardProps;
+  data: TransactionCardProps
 }
 
-export function TransactionCard ({ data }: Props) {
+export function TransactionCard({ data }: Props) {
   return (
     <Container>
       <Title>{data.title}</Title>
       <Amount type={data.type}>
-        { data.type === 'negative' && '- ' }
+        {data.type === 'negative' && '- '}
         {data.amount}
       </Amount>
 
@@ -44,7 +44,6 @@ export function TransactionCard ({ data }: Props) {
         </Category>
         <Date>{data.date}</Date>
       </Footer>
-
     </Container>
   )
 }

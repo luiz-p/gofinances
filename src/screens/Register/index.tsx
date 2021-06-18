@@ -15,7 +15,7 @@ import {
   Title,
   Form,
   Fields,
-  TransactionsTypes
+  TransactionsTypes,
 } from './styles'
 
 interface FormData {
@@ -23,38 +23,35 @@ interface FormData {
   amount: string
 }
 
-export function Register () {
+export function Register() {
   const [transactionType, setTransactionType] = useState('')
   const [categoryModalOpen, setCategoryModalOpen] = useState(false)
 
   const [category, setCategory] = useState({
     key: 'category',
-    name: 'Categoria'
+    name: 'Categoria',
   })
 
-  const {
-    control,
-    handleSubmit
-  } = useForm()
+  const { control, handleSubmit } = useForm()
 
-  function handleTransactionsTypesSelect (type: 'up' | 'down') {
+  function handleTransactionsTypesSelect(type: 'up' | 'down') {
     setTransactionType(type)
   }
 
-  function handleOpenSelectCategoryModal () {
+  function handleOpenSelectCategoryModal() {
     setCategoryModalOpen(true)
   }
 
-  function handleCloseSelectCategoryModal () {
+  function handleCloseSelectCategoryModal() {
     setCategoryModalOpen(false)
   }
 
-  function handleRegister (form: FormData) {
+  function handleRegister(form: FormData) {
     const data = {
       name: form.name,
       amount: form.amount,
       transactionType,
-      category: category.key
+      category: category.key,
     }
 
     console.log(data)
@@ -66,54 +63,42 @@ export function Register () {
         <Title>Cadastro</Title>
       </Header>
 
-    <Form>
-      <Fields>
-        <InputForm
-          name="name"
-          control={control}
-          placeholder="Nome"
-        />
-        <InputForm
-          name="amount"
-          control={control}
-          placeholder="Preço"
-        />
+      <Form>
+        <Fields>
+          <InputForm name="name" control={control} placeholder="Nome" />
+          <InputForm name="amount" control={control} placeholder="Preço" />
 
-        <TransactionsTypes>
-          <TransactionTypeButton
-            type="up"
-            title="Income"
-            onPress={() => handleTransactionsTypesSelect('up')}
-            isActive={transactionType === 'up'}
+          <TransactionsTypes>
+            <TransactionTypeButton
+              type="up"
+              title="Income"
+              onPress={() => handleTransactionsTypesSelect('up')}
+              isActive={transactionType === 'up'}
+            />
+            <TransactionTypeButton
+              type="down"
+              title="Outcome"
+              onPress={() => handleTransactionsTypesSelect('down')}
+              isActive={transactionType === 'down'}
+            />
+          </TransactionsTypes>
+
+          <CategorySelectButton
+            title={category.name}
+            onPress={handleOpenSelectCategoryModal}
           />
-          <TransactionTypeButton
-            type="down"
-            title="Outcome"
-            onPress={() => handleTransactionsTypesSelect('down')}
-            isActive={transactionType === 'down'}
-          />
-        </TransactionsTypes>
+        </Fields>
 
-        <CategorySelectButton
-          title={category.name}
-          onPress={handleOpenSelectCategoryModal}
+        <Button title="Enviar" onPress={handleSubmit(handleRegister)} />
+      </Form>
+
+      <Modal visible={categoryModalOpen}>
+        <CategorySelect
+          category={category}
+          setCategory={setCategory}
+          closeSelectCategory={handleCloseSelectCategoryModal}
         />
-      </Fields>
-
-      <Button
-        title="Enviar"
-        onPress={handleSubmit(handleRegister)}
-      />
-    </Form>
-
-    <Modal visible={categoryModalOpen}>
-      <CategorySelect
-        category={category}
-        setCategory={setCategory}
-        closeSelectCategory={handleCloseSelectCategoryModal}
-      />
-    </Modal>
-
+      </Modal>
     </Container>
   )
 }
