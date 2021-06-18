@@ -4,7 +4,8 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'standard'
+    'standard',
+    'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -16,10 +17,12 @@ module.exports = {
   },
   plugins: [
     'react',
-    '@typescript-eslint'
+    '@typescript-eslint',
+    'prettier'
   ],
   rules: {
     "no-use-before-define": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "prettier/prettier": "error"
   }
 }
