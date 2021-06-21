@@ -1,8 +1,11 @@
+import { Platform } from 'react-native'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { Feather } from '@expo/vector-icons'
 import styled from 'styled-components/native'
 
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { Feather } from '@expo/vector-icons'
+
 import theme from '../../global/styles/theme'
 
 interface CategoryProps {
@@ -12,6 +15,7 @@ interface CategoryProps {
 export const Container = styled(GestureHandlerRootView)`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.background};
+  margin-top: ${Platform.OS === 'android' ? -getStatusBarHeight() : 0}px;
 `
 
 export const Header = styled.View`

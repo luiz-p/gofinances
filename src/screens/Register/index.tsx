@@ -163,7 +163,7 @@ export function Register() {
           <Button title="Enviar" onPress={handleSubmit(handleRegister)} />
         </Form>
 
-        <Modal visible={categoryModalOpen}>
+        <Modal visible={categoryModalOpen} transparent={true}>
           <CategorySelect
             category={category}
             setCategory={setCategory}
