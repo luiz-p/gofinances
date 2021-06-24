@@ -34,7 +34,8 @@ export default function App() {
       <NavigationContainer>
         <StatusBar
           barStyle="light-content"
-          backgroundColor={theme.colors.primary}
+          backgroundColor="transparent"
+          translucent
         />
         <AppRoutes />
       </NavigationContainer>
